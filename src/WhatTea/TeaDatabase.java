@@ -23,17 +23,16 @@ public class TeaDatabase {
         try{
             FileInputStream in = new FileInputStream("./src/WhatTea/tesorter.txt");
             ObjectInputStream inOBJ = new ObjectInputStream(in);
-            while(true){
-                Tea te = (Tea) inOBJ.readObject();
-                TeaBox.add(te);
-            }
+            TeaBox = (ArrayList<Tea>) inOBJ.readObject();
+
         }
         catch (Exception e){
             e.getStackTrace();
 
         }
-
-        System.out.println(TeaBox);
+        for (int i = 0; i < TeaBox.size(); i++) {
+            System.out.println(TeaBox.get(i).Name + " " + TeaBox.get(i).Description);
+        }
         return TeaBox;
 
     }
@@ -54,7 +53,7 @@ public class TeaDatabase {
     }
 
 //Random number generator
-    public void TeaDatabase() {
+    public void RandomTea() {
         RandomNumber Number = new RandomNumber();
     }
 }
