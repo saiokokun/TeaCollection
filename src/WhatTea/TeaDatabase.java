@@ -2,6 +2,8 @@ package WhatTea;
 import java.io.IOException;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.concurrent.LinkedTransferQueue;
+
 public class TeaDatabase {
 
 
@@ -34,6 +36,8 @@ public class TeaDatabase {
         }
 
         System.out.println(TeaBox);
+        for (int i = 0; i < TeaBox.size(); i++) {
+            System.out.println(TeaBox.get(i));
         return TeaBox;
 
     }
