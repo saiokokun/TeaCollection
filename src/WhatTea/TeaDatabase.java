@@ -41,12 +41,14 @@ public class TeaDatabase {
     public void StoreAllTeas(ArrayList <Tea> TeaBox ){
         File file = new File("./src/WhatTea/tesorter.txt");
         try {
-            FileWriter fileWriter = new FileWriter(file);
-            String Name = String.format(String.valueOf(TeaBox));
-            fileWriter.write(Name);
-            fileWriter.close();
+            //ev formatering med C: istället för ./ (C:\Users\nikos7\Desktop\ob)
+            FileOutputStream fileOut = new FileOutputStream("./src/WhatTea/tesorter.txt");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOut);
+            objectOutputStream.writeObject(TeaBox);
+            objectOutputStream.close();
             System.out.println("The Tea is saved");
         } catch (IOException e) {
+            System.out.println(e);
             System.out.println("Could not save Tea");
         }
     }

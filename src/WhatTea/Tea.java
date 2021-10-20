@@ -1,5 +1,7 @@
 package WhatTea;
-public class Tea {
+import java.io.Serializable;
+
+public class Tea implements Serializable {
     String Name;
     String Description;
 //Basen för att skapa nya teer
