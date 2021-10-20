@@ -1,11 +1,21 @@
 package WhatTea;
+
+import java.io.IOException;
+import java.util.ArrayList;
+//ladda alla classer
 public class main {
         public static void main(String[] args) {
-            WhatTea tag = new WhatTea();
-
-            tag.TeaDatabase();
-            tag.WhatTea();
-            //tag.quit();
+            TeaDatabase tag = new TeaDatabase();
+            tag.toString();
+           tag.TeaDatabase();
+           tag.Storageexists();
+            ArrayList<Tea> TeaSaver = new ArrayList<Tea>();
+            Tea GronTe = new Tea("Grön te", "1 min");
+            Tea SvartTe = new Tea("Svart", "2min");
+            TeaSaver.add(GronTe);
+            TeaSaver.add(SvartTe);
+            tag.StoreAllTeas(TeaSaver);
+            ArrayList<Tea> TeaGetter = tag.GetAllTeas();
 
         }
 }
