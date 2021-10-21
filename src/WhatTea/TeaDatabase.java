@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 public class TeaDatabase {
 
-
+TeMeny Read = new TeMeny();
 //Skapa ny Te fil i txt
     public void Storageexists(){
         File Storagefile = new File("./src/WhatTea/tesorter.txt");
@@ -36,6 +36,8 @@ public class TeaDatabase {
         return TeaBox;
 
     }
+
+
     //Spara Te i txt filen
     public void StoreAllTeas(ArrayList <Tea> TeaBox ){
         File file = new File("./src/WhatTea/tesorter.txt");
@@ -45,10 +47,10 @@ public class TeaDatabase {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOut);
             objectOutputStream.writeObject(TeaBox);
             objectOutputStream.close();
-            System.out.println("The Tea is saved");
+            System.out.println("\nThe Tea is saved");
         } catch (IOException e) {
             System.out.println(e);
-            System.out.println("Could not save Tea");
+            System.out.println("\nCould not save Tea");
         }
     }
 
