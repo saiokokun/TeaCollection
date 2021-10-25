@@ -8,9 +8,9 @@ public class main {
 
             TeaDatabase tag = new TeaDatabase();
             TeMeny load = new TeMeny();
-            load.LaggTillTe(tag);
+            load.TeaInteraction(tag);
             //tag.toString();
-            tag.Storageexists();
+            tag.StorageExists();
             //Om filen är tom
             ArrayList<Tea> TeaSaver = new ArrayList<Tea>();
             /*Tea GronTe = new Tea("Grön te", "1 min");

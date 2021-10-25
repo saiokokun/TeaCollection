@@ -3,14 +3,18 @@ import java.io.IOException;
 import java.io.*;
 import java.util.ArrayList;
 public class TeaDatabase {
-
+//public interface DontForget{
+   // void StorageExists();
+    //void GetAllTeas();
+    //void StoreAllTeas();
+//}
 TeMeny Read = new TeMeny();
 //Skapa ny Te fil i txt
-    public void Storageexists(){
-        File Storagefile = new File("./src/WhatTea/tesorter.txt");
-        if (!Storagefile.exists()){
+    public void StorageExists() {
+        File StorageFile = new File("./src/WhatTea/tesorter.txt");
+        if (!StorageFile.exists()){
             try{
-                Storagefile.createNewFile();
+                StorageFile.createNewFile();
             }
             catch(Exception e){
                 System.out.println(e);
@@ -31,8 +35,9 @@ TeMeny Read = new TeMeny();
 
         }
         for (int i = 0; i < TeaBox.size(); i++) {
-            System.out.println(TeaBox.get(i).Name + " " + TeaBox.get(i).Description);
+            System.out.println(TeaBox.get(i).Name + " " + TeaBox.get(i).Description + " " + TeaBox.get(i).CookTime + "\n");
         }
+
         return TeaBox;
 
     }
@@ -48,7 +53,9 @@ TeMeny Read = new TeMeny();
             objectOutputStream.writeObject(TeaBox);
             objectOutputStream.close();
             System.out.println("\nThe Tea is saved");
-        } catch (IOException e) {
+
+        }
+        catch (IOException e) {
             System.out.println(e);
             System.out.println("\nCould not save Tea");
         }
