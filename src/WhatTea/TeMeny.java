@@ -1,5 +1,5 @@
 package WhatTea;
-import com.sun.source.tree.NewArrayTree;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -9,12 +9,12 @@ public class TeMeny {
         boolean running = true;
         while(running) {
             Scanner userInput = new Scanner(System.in);
-            System.out.print("1. Lägg till te \r\n2. Ta bort te.\r\n3. Random te\r\n4. Visa alla teer\r\nQuit");
+            System.out.print("1. Lägg till te \r\n2. Ta bort te.\r\n3. Random te\r\n4. Visa alla teer\r\nTo quit, write \"quit\"");
             System.out.print("\n> ");
             // 2. Läs in kommando från användaren
             String input = userInput.nextLine();
              if (input.equalsIgnoreCase("1")) {
-                 ArrayList<Tea> TeaSaver = SparaTe.GetAllTeas();
+
                 System.out.println("Du valde 1");
                  System.out.println("Vad ska teet heta?");
                  String newTeaName = userInput.nextLine();
@@ -23,6 +23,8 @@ public class TeMeny {
                  System.out.println("Vad är koktiden?");
                  String newTeaCookTime = userInput.nextLine();
                  Tea New = new Tea(newTeaName, newTeaDescription, newTeaCookTime);
+                 TeaDatabase Save = new TeaDatabase();
+                 ArrayList<Tea> TeaSaver = Save.GetAllTeas();
                  TeaSaver.add(New);
                  SparaTe.StoreAllTeas(TeaSaver);
 
@@ -36,11 +38,18 @@ public class TeMeny {
              }
              else if (input.equalsIgnoreCase("4")) { //Visa alla teer
                  System.out.println("Du valde 4");
-                 System.out.println(SparaTe.GetAllTeas());
+                 //System.out.println(SparaTe.GetAllTeas());
+                 ArrayList<Tea> TeaLoader = SparaTe.GetAllTeas();
+                 TeaLoader.contains(TeaLoader.size());
+
+                 for (int i = 0; i < TeaLoader.size(); i++) {
+                     System.out.println("\n|Name:| " + TeaLoader.get(i).Name + " " + "\n|Description:| " + TeaLoader.get(i).Description + " " + "\n|Cooktime:| " + TeaLoader.get(i).CookTime + "\n");
+                 }
 
              }
              else if(input.equalsIgnoreCase("quit")) {
-                running = false;
+                 return;
+                 //running = false;
              }
         }
 

@@ -12,7 +12,7 @@ TeMeny Read = new TeMeny();
 //Skapa ny Te fil i txt
     public void StorageExists() {
         File StorageFile = new File("./src/WhatTea/tesorter.txt");
-        if (!StorageFile.exists()){
+        if (!StorageFile.exists()){ //Detta behövs bara för att skapa ny fil om fil inte finns. Finns risk för overwrite om denna är på 24/7
             try{
                 StorageFile.createNewFile();
             }
@@ -34,9 +34,7 @@ TeMeny Read = new TeMeny();
             e.getStackTrace();
 
         }
-        for (int i = 0; i < TeaBox.size(); i++) {
-            System.out.println(TeaBox.get(i).Name + " " + TeaBox.get(i).Description + " " + TeaBox.get(i).CookTime + "\n");
-        }
+
 
         return TeaBox;
 

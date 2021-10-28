@@ -12,12 +12,12 @@ public class main {
             //tag.toString();
             tag.StorageExists();
             //Om filen är tom
-            ArrayList<Tea> TeaSaver = new ArrayList<Tea>();
+            //ArrayList<Tea> TeaSaver = new ArrayList<Tea>();
             /*Tea GronTe = new Tea("Grön te", "1 min");
             Tea SvartTe = new Tea("Svart", "2min");
             TeaSaver.add(GronTe);
             TeaSaver.add(SvartTe);*/
-            tag.StoreAllTeas(TeaSaver);
+            //tag.StoreAllTeas(TeaSaver);
             ArrayList<Tea> GetAllTeas = tag.GetAllTeas();
 
         }
