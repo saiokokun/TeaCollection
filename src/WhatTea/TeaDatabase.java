@@ -2,6 +2,8 @@ package WhatTea;
 import java.io.IOException;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Random;
+
 public class TeaDatabase {
 //public interface DontForget{
    // void StorageExists();
@@ -57,10 +59,6 @@ TeMeny Read = new TeMeny();
             System.out.println(e);
             System.out.println("\nCould not save Tea");
         }
-    }
 
-//Random number generator
-    public void RandomTea() {
-        RandomNumber Number = new RandomNumber();
     }
 }

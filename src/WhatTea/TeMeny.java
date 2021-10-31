@@ -1,11 +1,14 @@
 package WhatTea;
 
 
+import javax.naming.Name;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
+
 public class TeMeny {
 
-    public void TeaInteraction(TeaDatabase SparaTe){
+    public Object TeaInteraction(TeaDatabase SparaTe){
         boolean running = true;
         while(running) {
             Scanner userInput = new Scanner(System.in);
@@ -35,7 +38,15 @@ public class TeMeny {
             }
              else if (input.equalsIgnoreCase("3")) { //Random te
                  System.out.println("Du valde 3");
+                 ArrayList<Tea> TeaLoader = SparaTe.GetAllTeas();
+                 TeaLoader.contains(TeaLoader.size());
+                 int NumberSize = TeaLoader.size();
+                 Random TeaRandom = new Random();
+                 int upperbound = NumberSize;
+                 int int_random = TeaRandom.nextInt(upperbound);
+                 System.out.println("\n|Name:| " + TeaLoader.get(int_random).Name + " " + "\n|Description:| " + TeaLoader.get(int_random).Description + " " + "\n|Cooktime:| " + TeaLoader.get(int_random).CookTime);
              }
+
              else if (input.equalsIgnoreCase("4")) { //Visa alla teer
                  System.out.println("Du valde 4");
                  //System.out.println(SparaTe.GetAllTeas());
@@ -48,11 +59,12 @@ public class TeMeny {
 
              }
              else if(input.equalsIgnoreCase("quit")) {
-                 return;
+                 return input;
                  //running = false;
              }
         }
 
+        return null;
     }
 
 
