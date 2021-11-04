@@ -5,13 +5,12 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class TeaDatabase {
 
-//Skapa ny Te fil i txt
-
-    public void StorageExists() {
+    public void storageExists() { //Skapa ny Te fil i txt
         File StorageFile = new File("./src/WhatTea/tesorter.txt");
-        if (!StorageFile.exists()){ //Detta behövs bara för att skapa ny fil om fil inte finns. Finns risk för overwrite om denna är på 24/7
+        if (!StorageFile.exists()){ //Om sparfilen för Te inte finns, skapa en ny
             try{
                 StorageFile.createNewFile();
             }
@@ -20,116 +19,103 @@ public class TeaDatabase {
             }
         }
     }
-    //Läs in alla teer från Txt filen
-    public ArrayList<Tea> GetAllTeas() {
-        ArrayList <Tea> TeaBox= new ArrayList<Tea>();
-        try{
+
+    public ArrayList<Tea> getAllTeas() { //Läs in alla teer från Txt filen
+        ArrayList <Tea> teaConstructorBoxes = new ArrayList<>();
+            try{
             FileInputStream in = new FileInputStream("./src/WhatTea/tesorter.txt");
             ObjectInputStream inOBJ = new ObjectInputStream(in);
-            TeaBox = (ArrayList<Tea>) inOBJ.readObject();
-
+            teaConstructorBoxes = (ArrayList<Tea>)inOBJ.readObject();
         }
         catch (Exception e){
             e.getStackTrace();
-
         }
-
-
-        return TeaBox;
-
+        return teaConstructorBoxes;
     }
 
-
-    //Spara Te i txt filen
-    public void StoreAllTeas(ArrayList <Tea> TeaBox ){
-        File file = new File("./src/WhatTea/tesorter.txt");
+    public void storeAllTeas(ArrayList <Tea> teaConstructorBoxes){ //Spara Te i txt filen
         try {
-            //ev formatering med C: istället för ./ (C:\Users\nikos7\Desktop\ob)
             FileOutputStream fileOut = new FileOutputStream("./src/WhatTea/tesorter.txt");
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOut);
-            objectOutputStream.writeObject(TeaBox);
+            objectOutputStream.writeObject(teaConstructorBoxes);
             objectOutputStream.close();
             System.out.println("\nThe Tea is saved");
-
         }
         catch (IOException e) {
             System.out.println(e);
             System.out.println("\nCould not save Tea");
         }
-
     }
 
-    public void NyttTe(){ //Lägg till te
+    public void nyttTe() { //Lägg till nytt te
         Scanner newScanner = new Scanner(System.in);
-        //String userInput = newScanner.nextLine();
-        TeaDatabase spara = new TeaDatabase();
-
         System.out.println("Du valde 1");
         System.out.println("Vad ska teet heta?");
         String newTeaName = newScanner.nextLine();
+        if (newTeaName == null) {
+            System.out.println("Cannot have null input, try again");
+            return;
+        }
         System.out.println("Vad är det för te?");
         String newTeaDescription = newScanner.nextLine();
+        if (newTeaDescription == null) {
+            System.out.println("Cannot have null input, try again");
+            return;
+        }
         System.out.println("Vad är koktiden?");
         String newTeaCookTime = newScanner.nextLine();
+        if (newTeaCookTime == null) {
+            System.out.println("Cannot have null input, try again");
+            return;
+        }
         Tea New = new Tea(newTeaName, newTeaDescription, newTeaCookTime);
         TeaDatabase Save = new TeaDatabase();
-        ArrayList<Tea> TeaSaver = Save.GetAllTeas();
-        TeaSaver.add(New);
-        StoreAllTeas(TeaSaver);
-
-
-
+        ArrayList<Tea> teaConstructorSaver = Save.getAllTeas();
+        teaConstructorSaver.add(New);
+        storeAllTeas(teaConstructorSaver);
     }
-    public void TaBortTe(){ //Ta bort te från listan
-        ArrayList<Tea> TeaLoader = GetAllTeas();
+
+    public void taBortTe(){ //Ta bort te från listan
+        ArrayList<Tea> teaConstructorLoader = getAllTeas();
         Scanner newScanner = new Scanner(System.in);
         System.out.println("Är du säker på att ta bort te? Y/N");
         String userInput = newScanner.nextLine();
         if (userInput.equalsIgnoreCase("Y")) {
-            for (int i = 0; i < TeaLoader.size(); i++) {
-                System.out.println("\n Number " + (i) + "\n|Name:| " + TeaLoader.get(i).Name + " " + "\n|Description:| " + TeaLoader.get(i).Description + " " + "\n|Cooktime:| " + TeaLoader.get(i).CookTime + "\n");
+            for (int i = 0; i < teaConstructorLoader.size(); i++) {
+                System.out.println("\n Number " + (i) + "\n|Name:| " + teaConstructorLoader.get(i).Name + " " + "\n|Description:| " + teaConstructorLoader.get(i).Description + " " + "\n|Cooktime:| " + teaConstructorLoader.get(i).CookTime + "\n");
             }
             System.out.println("Vilken till du ta bort? Skriv nummer");
             System.out.print("\n> ");
             int taBortInput = Integer.parseInt(newScanner.nextLine());
-            TeaLoader.remove(taBortInput);
-            StoreAllTeas(TeaLoader);
+            teaConstructorLoader.remove(taBortInput);
+            storeAllTeas(teaConstructorLoader);
         }
         else {
             System.out.println("Ångrat, återvänder\n");
         }
     }
-    public void RandomTe(){ //Ta fram ett random te från listan
-        ArrayList<Tea> TeaLoader = GetAllTeas();
-        TeaLoader.contains(TeaLoader.size());
-        int NumberSize = TeaLoader.size();
+
+    public void randomTe(){ //Ta fram ett random te från listan
+        ArrayList<Tea> teaConstructorLoader = getAllTeas();
+        int NumberSize = teaConstructorLoader.size();
         Random TeaRandom = new Random();
-        int upperbound = NumberSize;
-        int int_random = TeaRandom.nextInt(upperbound);
-        System.out.println("\n|Name:| " + TeaLoader.get(int_random).Name + " " + "\n|Description:| " + TeaLoader.get(int_random).Description + " " + "\n|Cooktime:| " + TeaLoader.get(int_random).CookTime + "\n");
-
-
+        int int_random = TeaRandom.nextInt(NumberSize);
+        System.out.println("\n|Name:| " + teaConstructorLoader.get(int_random).Name + " " + "\n|Description:| " + teaConstructorLoader.get(int_random).Description + " " + "\n|Cooktime:| " + teaConstructorLoader.get(int_random).CookTime + "\n");
     }
-    public void VisaAllaTeer (){
-        ArrayList<Tea> TeaLoader = GetAllTeas();
-        TeaLoader.contains(TeaLoader.size());
-
-        for (int i = 0; i < TeaLoader.size(); i++) {
-            System.out.println("\n|Name:| " + TeaLoader.get(i).Name + " " + "\n|Description:| " + TeaLoader.get(i).Description + " " + "\n|Cooktime:| " + TeaLoader.get(i).CookTime + "\n");
+    public void visaAllaTeer(){//Visa alla teer som finns i en layout
+        ArrayList<Tea> teaConstructorLoader = getAllTeas();
+        for (Tea tea : teaConstructorLoader) {
+            System.out.println("\n|Name:| " + tea.Name + " " + "\n|Description:| " + tea.Description + " " + "\n|Cooktime:| " + tea.CookTime + "\n");
         }
     }
 
-
-    public void Filler(){ //Filler för aesthetics
+    public static void filler(){ //Filler för aesthetics
         Scanner newScanner = new Scanner(System.in);
         System.out.println("--------------");
         System.out.println("Press enter to continue");
         System.out.println("--------------");
         System.out.print("\n>");
-        String ignoreInput = newScanner.nextLine();
+        newScanner.nextLine();
         System.out.println("\n\n\n\n\n\n\n");
-
-
-
     }
 }
