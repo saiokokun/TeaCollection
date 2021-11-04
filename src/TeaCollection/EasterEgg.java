@@ -1,4 +1,4 @@
-package WhatTea;
+package TeaCollection;
 import java.io.IOException;
 import java.io.*;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ class Skamt implements Serializable {
 
 public class EasterEgg {
     public void skamtExists() { //Skapa ny secretfil i txt om den inte finns
-        File StorageFile = new File("./src/WhatTea/secret.txt");
+        File StorageFile = new File("./src/TeaCollection/secret.txt");
         if (!StorageFile.exists()){//Om sparfilen för skämt inte finns, skapa en ny
             try{
                 StorageFile.createNewFile();
@@ -34,7 +34,7 @@ public class EasterEgg {
     public ArrayList<Skamt> getAllSkamt() { //Läs in alla skämt från Txt filen
         ArrayList <Skamt> skamtConstructorBoxes = new ArrayList<>();
         try{
-            FileInputStream in = new FileInputStream("./src/WhatTea/secret.txt");
+            FileInputStream in = new FileInputStream("./src/TeaCollection/secret.txt");
             ObjectInputStream inOBJ = new ObjectInputStream(in);
             skamtConstructorBoxes = (ArrayList<Skamt>) inOBJ.readObject();
         }
@@ -46,15 +46,15 @@ public class EasterEgg {
 
     public void storeAllSkamt(ArrayList <Skamt> skamtConstructorBoxes){ //Spara skämt i txt filen, om tillkallat
         try {
-            FileOutputStream fileOut = new FileOutputStream("./src/WhatTea/secret.txt");
+            FileOutputStream fileOut = new FileOutputStream("./src/TeaCollection/secret.txt");
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOut);
             objectOutputStream.writeObject(skamtConstructorBoxes);
             objectOutputStream.close();
-            System.out.println("\nThe Tea is saved");
+            System.out.println("\nThe Skämt is saved");
         }
         catch (IOException e) {
             System.out.println(e);
-            System.out.println("\nCould not save Tea");
+            System.out.println("\nCould not save Skämt");
         }
     }
 
@@ -85,7 +85,7 @@ public class EasterEgg {
     public void visaAllaSkamt(){ //Visar alla skämt tillgängliga, om tillkallat
         ArrayList<Skamt> skamtConstructorLoader = getAllSkamt();
         for (Skamt skamt : skamtConstructorLoader) {
-            System.out.println("\n|Name:| " + skamt.Name);
+            System.out.println(skamt.Name);
         }
     }
 

@@ -1,4 +1,4 @@
-package WhatTea;
+package TeaCollection;
 import java.io.IOException;
 import java.io.*;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class TeaDatabase {
 
     public void storageExists() { //Skapa ny Te fil i txt
-        File StorageFile = new File("./src/WhatTea/tesorter.txt");
+        File StorageFile = new File("./src/TeaCollection/tesorter.txt");
         if (!StorageFile.exists()){ //Om sparfilen för Te inte finns, skapa en ny
             try{
                 StorageFile.createNewFile();
@@ -23,7 +23,7 @@ public class TeaDatabase {
     public ArrayList<Tea> getAllTeas() { //Läs in alla teer från Txt filen
         ArrayList <Tea> teaConstructorBoxes = new ArrayList<>();
             try{
-            FileInputStream in = new FileInputStream("./src/WhatTea/tesorter.txt");
+            FileInputStream in = new FileInputStream("./src/TeaCollection/tesorter.txt");
             ObjectInputStream inOBJ = new ObjectInputStream(in);
             teaConstructorBoxes = (ArrayList<Tea>)inOBJ.readObject();
         }
@@ -35,7 +35,7 @@ public class TeaDatabase {
 
     public void storeAllTeas(ArrayList <Tea> teaConstructorBoxes){ //Spara Te i txt filen
         try {
-            FileOutputStream fileOut = new FileOutputStream("./src/WhatTea/tesorter.txt");
+            FileOutputStream fileOut = new FileOutputStream("./src/TeaCollection/tesorter.txt");
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOut);
             objectOutputStream.writeObject(teaConstructorBoxes);
             objectOutputStream.close();

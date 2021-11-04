@@ -18,7 +18,7 @@
 #     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
 # This output file may be truncated or incomplete.
 #
-#  Out of Memory Error (os_windows.cpp:3466), pid=8280, tid=5308
+#  Out of Memory Error (os_windows.cpp:3466), pid=23468, tid=13760
 #
 # JRE version:  (16.0.2+7) (build )
 # Java VM: Java HotSpot(TM) 64-Bit Server VM (16.0.2+7-67, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
@@ -27,16 +27,16 @@
 
 ---------------  S U M M A R Y ------------
 
-Command Line: -javaagent:D:\Program Files\JetBrains\Toolbox\apps\IDEA-U\ch-0\212.5080.55\lib\idea_rt.jar=65419:D:\Program Files\JetBrains\Toolbox\apps\IDEA-U\ch-0\212.5080.55\bin -Dfile.encoding=UTF-8 TeaCollection.Main
+Command Line: -ea -Didea.test.cyclic.buffer.size=1048576 -javaagent:D:\Program Files\JetBrains\Toolbox\apps\IDEA-U\ch-0\212.5080.55\lib\idea_rt.jar=53634:D:\Program Files\JetBrains\Toolbox\apps\IDEA-U\ch-0\212.5080.55\bin -Dfile.encoding=UTF-8 com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit5 Testing
 
 Host: AMD Ryzen 5 3600XT 6-Core Processor            , 12 cores, 31G,  Windows 10 , 64 bit Build 19041 (10.0.19041.1202)
-Time: Wed Nov  3 21:50:47 2021 W. Europe Standard Time elapsed time: 0.025639 seconds (0d 0h 0m 0s)
+Time: Thu Nov  4 18:47:35 2021 W. Europe Standard Time elapsed time: 0.032848 seconds (0d 0h 0m 0s)
 
 ---------------  T H R E A D  ---------------
 
-Current thread (0x0000028dc3419a80):  JavaThread "Unknown thread" [_thread_in_vm, id=5308, stack(0x000000d4ce700000,0x000000d4ce800000)]
+Current thread (0x000002336aad6c80):  JavaThread "Unknown thread" [_thread_in_vm, id=13760, stack(0x0000007f25500000,0x0000007f25600000)]
 
-Stack: [0x000000d4ce700000,0x000000d4ce800000]
+Stack: [0x0000007f25500000,0x0000007f25600000]
 Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
 V  [jvm.dll+0x6681ca]
 V  [jvm.dll+0x7c9e69]
@@ -65,22 +65,22 @@ C  [ntdll.dll+0x52651]
 ---------------  P R O C E S S  ---------------
 
 Threads class SMR info:
-_java_thread_list=0x00007fff7275cbb8, length=0, elements={
+_java_thread_list=0x00007ffa7166cbb8, length=0, elements={
 }
 
 Java Threads: ( => current thread )
 
 Other Threads:
-  0x0000028dc134e7f0 GCTaskThread "GC Thread#0" [stack: 0x000000d4ce800000,0x000000d4ce900000] [id=6624]
-  0x0000028dc349ba60 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000d4ce900000,0x000000d4cea00000] [id=10596]
-  0x0000028dc349cb00 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000d4cea00000,0x000000d4ceb00000] [id=3320]
+  0x000002336ab4bd70 GCTaskThread "GC Thread#0" [stack: 0x0000007f25600000,0x0000007f25700000] [id=20004]
+  0x000002336ab5ce30 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000007f25700000,0x0000007f25800000] [id=19636]
+  0x000002336ab5e0c0 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000007f25800000,0x0000007f25900000] [id=21188]
 
-[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fff71f33ee7]
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffa70e43ee7]
 
 VM state: not at safepoint (not fully initialized)
 
 VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
-[0x0000028dc3414730] Heap_lock - owner thread: 0x0000028dc3419a80
+[0x000002336aad1ff0] Heap_lock - owner thread: 0x000002336aad6c80
 
 Heap address: 0x0000000601000000, size: 8176 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
 
@@ -94,7 +94,7 @@ Heap:
  garbage-first heap   total 0K, used 0K [0x0000000601000000, 0x0000000800000000)
   region size 4096K, 0 young (0K), 0 survivors (0K)
 
-[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fff72311eed]
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffa71221eed]
 
 GC Heap History (0 events):
 No events
@@ -112,52 +112,52 @@ Internal exceptions (0 events):
 No events
 
 Events (1 events):
-Event: 0.008 Loaded shared library D:\java dev\bin\java.dll
+Event: 0.007 Loaded shared library D:\java dev\bin\java.dll
 
 
 Dynamic libraries:
-0x00007ff720400000 - 0x00007ff720410000 	D:\java dev\bin\java.exe
-0x00007fffefdb0000 - 0x00007fffeffa5000 	C:\WINDOWS\SYSTEM32\ntdll.dll
-0x00007fffee920000 - 0x00007fffee9de000 	C:\WINDOWS\System32\KERNEL32.DLL
-0x00007fffeda40000 - 0x00007fffedd09000 	C:\WINDOWS\System32\KERNELBASE.dll
-0x00007fffea6c0000 - 0x00007fffea750000 	C:\WINDOWS\SYSTEM32\apphelp.dll
-0x00007fffed5e0000 - 0x00007fffed6e0000 	C:\WINDOWS\System32\ucrtbase.dll
-0x00007fffe9af0000 - 0x00007fffe9b08000 	D:\java dev\bin\jli.dll
-0x00007fffefcc0000 - 0x00007fffefd6c000 	C:\WINDOWS\System32\ADVAPI32.dll
-0x00007fffee430000 - 0x00007fffee4ce000 	C:\WINDOWS\System32\msvcrt.dll
-0x00007fffef060000 - 0x00007fffef0fb000 	C:\WINDOWS\System32\sechost.dll
-0x00007fffeef30000 - 0x00007fffef05a000 	C:\WINDOWS\System32\RPCRT4.dll
-0x00007fffe9b10000 - 0x00007fffe9b29000 	D:\java dev\bin\VCRUNTIME140.dll
-0x00007fffeed80000 - 0x00007fffeef21000 	C:\WINDOWS\System32\USER32.dll
-0x00007fffed900000 - 0x00007fffed922000 	C:\WINDOWS\System32\win32u.dll
-0x00007fffee9e0000 - 0x00007fffeea0b000 	C:\WINDOWS\System32\GDI32.dll
-0x00007fffed930000 - 0x00007fffeda3b000 	C:\WINDOWS\System32\gdi32full.dll
-0x00007fffedd60000 - 0x00007fffeddfd000 	C:\WINDOWS\System32\msvcp_win.dll
-0x00007fffd3c50000 - 0x00007fffd3eea000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
-0x00007fffe3b30000 - 0x00007fffe3b3a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
-0x00007fffee400000 - 0x00007fffee430000 	C:\WINDOWS\System32\IMM32.DLL
-0x00007fffe9ae0000 - 0x00007fffe9aec000 	D:\java dev\bin\vcruntime140_1.dll
-0x00007fffe9a10000 - 0x00007fffe9aa1000 	D:\java dev\bin\msvcp140.dll
-0x00007fff71c50000 - 0x00007fff727fb000 	D:\java dev\bin\server\jvm.dll
-0x00007fffedf50000 - 0x00007fffedf58000 	C:\WINDOWS\System32\PSAPI.DLL
-0x00007fffe3890000 - 0x00007fffe38b7000 	C:\WINDOWS\SYSTEM32\WINMM.dll
-0x00007fffe7140000 - 0x00007fffe7149000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
-0x00007fffede00000 - 0x00007fffede6b000 	C:\WINDOWS\System32\WS2_32.dll
-0x00007fffebda0000 - 0x00007fffebdb2000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
-0x00007fffe9ad0000 - 0x00007fffe9ada000 	D:\java dev\bin\jimage.dll
-0x00007fffeb260000 - 0x00007fffeb444000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
-0x00007fffdef90000 - 0x00007fffdefbc000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
-0x00007fffed870000 - 0x00007fffed8f3000 	C:\WINDOWS\System32\bcryptPrimitives.dll
-0x00007fffe9a00000 - 0x00007fffe9a0e000 	D:\java dev\bin\instrument.dll
-0x00007fffdcca0000 - 0x00007fffdccc5000 	D:\java dev\bin\java.dll
+0x00007ff7959a0000 - 0x00007ff7959b0000 	D:\java dev\bin\java.exe
+0x00007ffaee6f0000 - 0x00007ffaee8e5000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffaeda10000 - 0x00007ffaedace000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffaebfb0000 - 0x00007ffaec279000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffae9220000 - 0x00007ffae92b0000 	C:\WINDOWS\SYSTEM32\apphelp.dll
+0x00007ffaec2d0000 - 0x00007ffaec3d0000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffaddc30000 - 0x00007ffaddc48000 	D:\java dev\bin\jli.dll
+0x00007ffaec770000 - 0x00007ffaec81c000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffaec940000 - 0x00007ffaec9de000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffaec8a0000 - 0x00007ffaec93b000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffaee230000 - 0x00007ffaee35a000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffaddc50000 - 0x00007ffaddc69000 	D:\java dev\bin\VCRUNTIME140.dll
+0x00007ffaedb40000 - 0x00007ffaedce1000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffaec4e0000 - 0x00007ffaec502000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffaec740000 - 0x00007ffaec76b000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffaec3d0000 - 0x00007ffaec4db000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffaec540000 - 0x00007ffaec5dd000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffad8e70000 - 0x00007ffad910a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ffae3480000 - 0x00007ffae348a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffaecaa0000 - 0x00007ffaecad0000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffae90f0000 - 0x00007ffae90fc000 	D:\java dev\bin\vcruntime140_1.dll
+0x00007ffa923e0000 - 0x00007ffa92471000 	D:\java dev\bin\msvcp140.dll
+0x00007ffa70b60000 - 0x00007ffa7170b000 	D:\java dev\bin\server\jvm.dll
+0x00007ffaeca90000 - 0x00007ffaeca98000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffae9000000 - 0x00007ffae9009000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffaedad0000 - 0x00007ffaedb3b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffae2d20000 - 0x00007ffae2d47000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffaea6e0000 - 0x00007ffaea6f2000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffadb500000 - 0x00007ffadb50a000 	D:\java dev\bin\jimage.dll
+0x00007ffae9ba0000 - 0x00007ffae9d84000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffadaa90000 - 0x00007ffadaabc000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffaebe10000 - 0x00007ffaebe93000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffadb4f0000 - 0x00007ffadb4fe000 	D:\java dev\bin\instrument.dll
+0x00007ffad9900000 - 0x00007ffad9925000 	D:\java dev\bin\java.dll
 
 dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
 symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;D:\java dev\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e;D:\java dev\bin\server
 
 VM Arguments:
-jvm_args: -javaagent:D:\Program Files\JetBrains\Toolbox\apps\IDEA-U\ch-0\212.5080.55\lib\idea_rt.jar=65419:D:\Program Files\JetBrains\Toolbox\apps\IDEA-U\ch-0\212.5080.55\bin -Dfile.encoding=UTF-8 
-java_command: TeaCollection.Main
-java_class_path (initial): D:\Git savefiles\TeaCollection\out\production\TeaCollection
+jvm_args: -ea -Didea.test.cyclic.buffer.size=1048576 -javaagent:D:\Program Files\JetBrains\Toolbox\apps\IDEA-U\ch-0\212.5080.55\lib\idea_rt.jar=53634:D:\Program Files\JetBrains\Toolbox\apps\IDEA-U\ch-0\212.5080.55\bin -Dfile.encoding=UTF-8 
+java_command: com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit5 Testing
+java_class_path (initial): D:\Program Files\JetBrains\Toolbox\apps\IDEA-U\ch-0\212.5080.55\lib\idea_rt.jar;C:\Users\grigo\.m2\repository\org\junit\platform\junit-platform-launcher\1.7.0\junit-platform-launcher-1.7.0.jar;C:\Users\grigo\.m2\repository\org\junit\vintage\junit-vintage-engine\5.7.0\junit-vintage-engine-5.7.0.jar;D:\Program Files\JetBrains\Toolbox\apps\IDEA-U\ch-0\212.5080.55\plugins\junit\lib\junit5-rt.jar;D:\Program Files\JetBrains\Toolbox\apps\IDEA-U\ch-0\212.5080.55\plugins\junit\lib\junit-rt.jar;D:\Git savefiles\WhatTea\out\test\TeaCollection;D:\Git savefiles\WhatTea\out\production\TeaCollection;C:\Users\grigo\.m2\repository\org\junit\jupiter\junit-jupiter\5.7.0\junit-jupiter-5.7.0.jar;C:\Users\grigo\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.0\junit-jupiter-api-5.7.0.jar;C:\Users\grigo\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\grigo\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\grigo\.m2\repository\org\junit\platform\junit-platform-commons\1.7.0\junit-platform-commons-1.7.0.jar;C:\Users\grigo\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.7.0\junit-jupiter-params-5.7.0.jar;C:\Users\grigo\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.0\junit-jupiter-engine-5.7.0.jar;C:\Users\grigo\.m2\repository\org\junit\platform\junit-platform-engine\1.7.0\junit-platform-engine-1.7.0.jar;C:\Users\grigo\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\grigo\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar
 Launcher Type: SUN_STANDARD
 
 [Global flags]
@@ -199,12 +199,12 @@ PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 
 OS:
  Windows 10 , 64 bit Build 19041 (10.0.19041.1202)
-OS uptime: 0 days 11:31 hours
+OS uptime: 0 days 8:38 hours
 
 CPU: total 12 (initial active 12) (12 cores per cpu, 2 threads per core) family 23 model 113 stepping 0 microcode 0x0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt
 
-Memory: 4k page, system-wide physical 32693M (7932M free)
-TotalPageFile size 37675M (AvailPageFile size 512M)
+Memory: 4k page, system-wide physical 32693M (4498M free)
+TotalPageFile size 37675M (AvailPageFile size 12M)
 current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
 current process commit charge ("private bytes"): 64M, peak: 576M
 

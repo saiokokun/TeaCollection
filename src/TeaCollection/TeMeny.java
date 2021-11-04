@@ -1,4 +1,4 @@
-package WhatTea;
+package TeaCollection;
 import java.util.Scanner;
 
 

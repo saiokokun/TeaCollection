@@ -1,4 +1,4 @@
-package WhatTea;
+package TeaCollection;
 import java.io.Serializable;
 
 public class Tea implements Serializable {//Konstruktorklassen

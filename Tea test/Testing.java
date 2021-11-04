@@ -1,5 +1,5 @@
-import WhatTea.Tea;
-import WhatTea.TeaDatabase;
+import TeaCollection.Tea;
+import TeaCollection.TeaDatabase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.io.File;
@@ -9,7 +9,7 @@ public class Testing {
 
     @Test
     public void doesSaveFileExist() { //Kolla om sparfilen för teerna finns
-        File file = new File("./src/WhatTea/tesorter.txt");
+        File file = new File("./src/TeaCollection/tesorter.txt");
         if (file.exists()) {
             System.out.println("Savefile for Teas exist");
             Assertions.assertTrue(true);
@@ -21,7 +21,7 @@ public class Testing {
 
     @Test
     public void doesGnomedExist(){ //Kolla om ljudfilen för gnomed.wav finns
-        File file = new File ("./src/WhatTea/gnomed.wav");
+        File file = new File ("./src/TeaCollection/gnomed.wav");
         if (file.exists()) {
             System.out.println("Gnomed.wav for easteregg exist");
             Assertions.assertTrue(true);
@@ -59,7 +59,7 @@ public class Testing {
 
     @Test
     public void doesSecretFileExist() { //Kollar om sparfilen för alla "skämt" finns
-        File file = new File("./src/WhatTea/secret.txt");
+        File file = new File("./src/TeaCollection/secret.txt");
         if (file.exists()) {
             System.out.println("Savefile for Secret exist");
             Assertions.assertTrue(true);

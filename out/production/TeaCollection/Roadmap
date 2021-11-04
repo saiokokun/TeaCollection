@@ -1,0 +1,16 @@
+
+Prio
+//1. Göra en class med alla tesorter
+//2. Gör array av tena
+//3. Få main att kunna plocka ur en tesort
+//4. Lägga till en random number picker för random tesort
+//5. Lägga till description och tilllagningsinfo om hur länge man ska ha det i vatten+Vad teet är för nått
+6. userfriendly med frågor och val
+
+Extra
+1. Lägg till "Tillsattser"
+2. Radomisera te+tesorter
+3. Räkna hur mycket te jag har i ung gram
+5. Få programmet att läsa av hur mycket te det finns, och ta bort gram vid använding
+6. om slut, notifiera och ignorera att ge det valet (if gram >X, alert)
+7. Lägg till funktion som kan lägga till nya teer och ta bort+description och gram
