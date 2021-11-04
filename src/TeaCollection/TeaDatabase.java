@@ -104,8 +104,10 @@ public class TeaDatabase {
     }
     public void visaAllaTeer(){//Visa alla teer som finns i en layout
         ArrayList<Tea> teaConstructorLoader = getAllTeas();
+        int i= 1;
         for (Tea tea : teaConstructorLoader) {
-            System.out.println("\n|Name:| " + tea.Name + " " + "\n|Description:| " + tea.Description + " " + "\n|Cooktime:| " + tea.CookTime + "\n");
+            System.out.println("\n Number " + (i) +"\n|Name:| " + tea.Name + " " + "\n|Description:| " + tea.Description + " " + "\n|Cooktime:| " + tea.CookTime + "\n");
+            i++;
         }
     }
 
